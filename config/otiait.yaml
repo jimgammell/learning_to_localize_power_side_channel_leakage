@@ -1,0 +1,24 @@
+data_dir: REDACTED
+compute_ground_truth_assessments: true
+compute_first_order_stats: true
+run_supervised_hparam_sweep: true
+train_supervised_model: true
+compute_nn_attributions: true
+pretrain_classifiers: true
+run_ll_classifiers_hparam_sweep: true
+run_ll_hparam_sweep: true
+run_leakage_localization: true
+max_classifiers_pretrain_steps: 1000
+max_leakage_localization_steps: 10000
+default_kwargs:
+  classifiers_name: mlp-1d
+  calibrate_classifiers: false
+classifiers_pretrain_kwargs:
+  theta_lr: 1.e-3
+supervised_training_kwargs:
+  classifier_name: mlp-1d
+  lr: 1.e-5
+leakage_localization_kwargs:
+  theta_lr: 1.e-5
+  etat_lr: 1.e-3
+  gradient_estimator: REBAR

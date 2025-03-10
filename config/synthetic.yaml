@@ -1,0 +1,27 @@
+all_kwargs:
+  theta_pretrain_epochs: 250
+  adversarial_train_epochs: 0
+  gammap_posttrain_epochs: 10
+  default_data_module_kwargs:
+    uniform_noise_len: 0.0
+  default_training_module_kwargs:
+    classifiers_name: multilayer-perceptron
+    theta_optimizer_name: AdamW
+    theta_optimizer_kwargs:
+      lr: 2.0e-4
+      weight_decay: 0.0
+    gammap_optimizer_name: AdamW
+    gammap_optimizer_kwargs:
+      lr: 1.0e-3
+    gammap_identity_coeff: 1.0
+    theta_pretrain_steps: 1000
+    alternating_train_steps: -1
+    theta_adversarial_data_prop: 0.5
+    gammap_complement_proposal_dist: false
+    theta_pretrain_dist: Dirichlet
+    gammap_squashing_fn: Sigmoid
+    gammap_identity_penalty_fn: Entropy
+    gammap_rl_strategy: ENCO
+    calibrate_classifiers: true
+classifier_epoch_count: 100
+template_attack_poi_count: 5
